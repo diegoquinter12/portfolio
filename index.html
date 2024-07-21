@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+   
+
+    <link rel="stylesheet" href="./styles.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="avatar">
+          <img src="./jonas.png" alt="mi foto de perfil" />
+        </div>
+      </header>
+
+      <h1 class="name">Diego Quintero</h1>
+      <p class="about-me">
+        Soy estudiante de Ingeniería Mecatrónica con una sólida formación en programación y diseño.
+        Tengo experiencia en programación con Arduino y HTML, tambien manejo de SolidWorks para diseño CAD. Mi objetivo es aplicar mis habilidades técnicas y creativas en proyectos 
+        innovadores y desafiantes dentro de la industria de la mecatrónica y más allá.
+      </p>
+
+      <h2 style="text-align: center;">Mis redes sociales</h2>
+      <div class="social-container">
+        <a style="text-decoration: none;" href="https://www.instagram.com/diego.quinort?igsh=NmN3cmE0cGYxcjUx" target="_blank">
+          <div class="social">
+            <img style="margin-right: 2px;" src="./instagram.svg" alt="Instragram" height="30" width="30">
+            Instagram
+          </div>
+        </a>
+        <a style="text-decoration: none;" href="https://www.facebook.com/share/KJu3zBknj1Vg2E5n/?mibextid=qi2Omg" target="_blank">
+          <div class="social">
+            <img style="margin-right: 2px;" src="./facebook.svg" alt="Facebook" height="30" width="30">
+            Facebook
+          </div>
+        </a>
+        <a style="text-decoration: none;" href="https://www.linkedin.com/in/d-i-e-g-o-q-u-i-n-t-e-r-o-82079a21b/" target="_blank">
+          <div class="social">
+            <img style="margin-right: 2px;" src="./linkedin.svg" alt="Linkedin" height="30" width="30">
+            Linkedin
+          </div>
+        </a>
+        <a style="text-decoration: none;" href="https://wa.me/qr/QJ5SCVLH2KJBK1" target="_blank">
+          <div class="social">
+            <img style="margin-right: 2px;" src="./whatsapp.svg" alt="Whatsapp" height="30" width="30">
+            Whatsapp
+          </div>
+        </a>
+
+    </main>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+      }
+      main {
+        flex: 1;
+      }
+      footer {
+        background-color: #ffe6e6;
+        padding: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+    </main>
+    <h2 style="text-align: center;">Habilidades</h2>
+<div class="skills-container">
+  <div class="skill-card">
+    <img src="./arduino.svg" alt="Arduino" class="skill-image" />
+    <div class="skill-description">
+      <h3>Arduino</h3>
+      <p>Experiencia en programación y creación de proyectos con Arduino.</p>
+    </div>
+  </div>
+  <div class="skill-card">
+    <img src="./solidworks.svg" alt="SolidWorks" class="skill-image" />
+    <div class="skill-description">
+      <h3>SolidWorks</h3>
+      <p>Competente en diseño CAD con SolidWorks para proyectos mecánicos.</p>
+    </div>
+  </div>
+  <div class="skill-card">
+    <img src="./html.svg" alt="HTML" class="skill-image" />
+    <div class="skill-description">
+      <h3>HTML</h3>
+      <p>Conocimientos en desarrollo web utilizando HTML y CSS.</p>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div id="skill-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div id="modal-body">
+      <!-- Contenido del modal -->
+    </div>
+  </div>
+</div>
+<script>
+  // Obtener el modal
+  var modal = document.getElementById("skill-modal");
+
+  // Botón de cierre del modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // Abre el modal
+  function openModal(skill) {
+    var modalBody = document.getElementById("modal-body");
+    modalBody.innerHTML = ""; // Limpiar contenido anterior
+
+    // Crea el contenido del modal según la habilidad
+    var skillContent = {
+    "Arduino": {
+      "video": "./arduino.mp4",
+      "description": "Este proyecto se desarrolló utilizando Arduino con el objetivo de crear un sistema de detección de objetos similar a un radar marino. El sistema estaba diseñado para detectar la presencia de objetos y mostrarlos en tiempo real en un monitor, proporcionando información visual crucial para la navegación y seguridad."
+    },
+      "SolidWorks": {
+        "video": "./solidworks.mp4",
+        "description": "Este proyecto se basa en la creacion de una pieza mecanica, el proyecto no solo requerirá habilidades técnicas en SolidWorks, sino también un entendimiento profundo de los requisitos funcionales y de fabricación para asegurar la calidad y eficiencia del diseño final."
+      },
+      "HTML": {
+        "video": "./html.mp4",
+        "description": "Este proyecto combina habilidades esenciales de HTML, CSS y JavaScript para crear un portafolio web atractivo y funcional que puede adaptarse y crecer según mis necesidades individuales y profesionales."
+      }
+    };
+
+      var content = skillContent[skill];
+  if (content) {
+    
+    var video = document.createElement("video");
+    video.src = content.video;
+    video.controls = true; // Añadir controles de reproducción
+    video.style.width = "50%";
+    video.style.borderRadius = "10px";
+
+    var desc = document.createElement("p");
+    desc.textContent = content.description;
+
+    modalBody.appendChild(video);
+    modalBody.appendChild(desc);
+  }
+
+  modal.style.display = "block";
+}
+
+  // Cerrar el modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // Cerrar el modal si el usuario hace clic fuera del contenido
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  // Añadir evento de clic a las tarjetas de habilidad
+  var skillCards = document.getElementsByClassName("skill-card");
+  for (var i = 0; i < skillCards.length; i++) {
+    skillCards[i].onclick = function() {
+      var skill = this.getElementsByClassName("skill-description")[0].getElementsByTagName("h3")[0].textContent;
+      openModal(skill);
+    }
+  }
+</script>
+    <footer>
+      <p>&copy; 2024 Diego Quintero. Todos los derechos reservados.</p>
+      <p>
+        <a href="https://github.com/diegoquinter12" target="_blank">GitHub</a> |
+        <a href="mailto:tu-email@example.com">diegoquinter3@gmail.com</a>
+      </p>
+    </footer>
+  </body>
+  </html>
+  </body>
+</html>
